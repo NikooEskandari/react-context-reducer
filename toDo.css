@@ -1,0 +1,99 @@
+#navbar {
+    height: 80vh;
+    font-weight: bold;
+    padding-top: 10vh;
+    background-color: #0c5460;
+    color: white;
+}
+
+#navbar ul {
+    list-style: none;
+}
+
+#navbar ul li {
+    margin-bottom: 0.5vh;
+}
+
+#to-do-container {
+    padding-top: 5vh;
+}
+
+.header {
+    height: 10vh;
+    position: relative
+}
+
+.header h3 {
+    color: darkgrey;
+    text-align: center;
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%)
+}
+
+.input-to-do {
+    margin: auto;
+    border: none;
+}
+
+#add-to-do-div {
+    width: 70%;
+    border-radius: 10px;
+    border: 1px solid #0c7fb4;
+    height: 5vh;
+    position: relative;
+}
+
+#add-to-do-div div#input-div {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+#add-to-do-div input {
+    width: 25vw;
+    border: none;
+}
+
+#add-to-do-div div#plus-div {
+    position: absolute;
+    top: 50%;
+    right: 0%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+#plus-icon {
+    cursor: pointer;
+}
+
+.to-do-list {
+    margin-top: 2vh;
+}
+
+.to-do-list {
+    width: 70%;
+    border-radius: 10px;
+    border: 1px solid grey;
+    height: auto;
+    min-height: 2vh;
+    position: relative;
+    margin-left: 2px;
+}
+
+.fa.fa-trash-o {
+    color: red;
+    font-size: 20px;
+}
+
+.to-do-items .col-sm-9 {
+    padding-left: 6vw;
+}
+
+
+

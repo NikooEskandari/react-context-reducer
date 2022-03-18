@@ -1,0 +1,95 @@
+{% extends '::base.html.twig' %}
+
+{% block maincontent_content %}
+    {# FOS JS Routing #}
+    <script src='{{ asset('bundles/fosjsrouting/js/router.js') }}'></script>
+    <script src='{{ path('fos_js_routing_js', { callback: 'fos.Router.setData' }) }}'></script>
+
+    <head>
+        <style>
+
+            .checkbox-container-card-wrapper {
+                border: 1px solid lightgrey;
+                border-radius: 5px;
+                margin-left: 2vw;
+            }
+
+            input.custom-control-input[type="checkbox"] {
+                margin-right: 0.5vw;
+            }
+
+            .cities-checkbox-container {
+                margin-left: 2vw;
+            }
+
+            .collapse-header a:after {
+                content: '△';
+                float: right;
+            }
+
+            .collapse-header a.collapsed:after {
+                content: '▽';
+            }
+
+            #cards-container {
+                display: flex;
+                flex-flow: row wrap;
+                flex-wrap: wrap;
+                align-content: flex-start;
+                justify-content: space-around;
+                overflow: auto;
+                align-self: center;
+            }
+
+            .card.card-custom {
+                border-style: solid;
+                border-radius: 5px;
+                border-color: lightgrey;
+            }
+
+        </style>
+    </head>
+
+    <div id='root'></div>
+
+    <script>
+        let route = "{{ route }}";
+        let markets_data_from_server = [];
+
+        switch (route) {
+            case 'index':
+                markets_data_from_server = {{ markets|json_encode()|raw }};
+                break;
+            case 'todo':
+                markets_data_from_server = [];
+                break;
+        }
+
+    </script>
+
+    <script crossorigin src="https://unpkg.com/react@17/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.production.min.js"></script>
+
+    {% if route == 'index' %}
+        <script src='{{ asset('bundles/js/TestReact/test_react_functions.js') }}'></script>
+        <script src='{{ asset('bundles/js/TestReact/MarketsList.js') }}'></script>
+        <script src='{{ asset('bundles/js/TestReact/CitiesList.js') }}'></script>
+        <script src='{{ asset('bundles/js/TestReact/CardsList.js') }}'></script>
+        <script src='{{ asset('bundles/js/TestReact/test_react.js') }}'></script>
+
+        {# Just for practice #}
+        <script src='{{ asset('bundles/js/TestReact/extra.js') }}'></script>
+    {% elseif route == 'todo' %}
+        <link rel='stylesheet' href='{{ asset('/bundles/css/TestReact/toDo.css')}}'>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.js"></script>
+        <script src='{{ asset('bundles/js/TestReact/toDo/ToDoContainer.js') }}'></script>
+        <script src='{{ asset('bundles/js/TestReact/toDo/Navbar.js') }}'></script>
+        <script src='{{ asset('bundles/js/TestReact/toDo/Header.js') }}'></script>
+        <script src='{{ asset('bundles/js/TestReact/toDo/InputToDo.js') }}'></script>
+        <script src='{{ asset('bundles/js/TestReact/toDo/ToDoList.js') }}'></script>
+        <script src='{{ asset('bundles/js/TestReact/toDo/ToDoItem.js') }}'></script>
+        <script src='{{ asset('bundles/js/TestReact/toDo/ToDoReducer.js') }}'></script>
+        <script src='{{ asset('bundles/js/TestReact/toDo/ToDoContext.js') }}'></script>
+    {% endif %}
+
+{% endblock %}
